@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean id="billCalculator" class="com.mckinsey.store.billing.BillCalculatorImpl">
+		<property name="percentageDiscounts">
+			<list>
+				<bean class="com.mckinsey.store.billing.EmployeeDiscount" />
+				<bean class="com.mckinsey.store.billing.AffiliateDiscount" />
+				<bean class="com.mckinsey.store.billing.LoyaltyDiscount" />
+			</list>
+		</property>
+		<property name="amountDiscount">
+			<bean class="com.mckinsey.store.billing.CumulativeAmountDiscount" />
+		</property>
+	</bean>
+</beans>
