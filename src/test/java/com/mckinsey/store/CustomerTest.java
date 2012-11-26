@@ -53,20 +53,10 @@ public class CustomerTest {
 		Calendar registrationDate = Calendar.getInstance();
 		registrationDate.setTime(new Date());
 		registrationDate.add(Calendar.YEAR, -2);
-		registrationDate.add(Calendar.SECOND, -1);
+		registrationDate.add(Calendar.SECOND, -5);
 		Customer customer = new Customer(CustomerType.NORMAL, registrationDate.getTime());
 
 		assertThat(customer.isLoyal(), is(true));
-	}
-
-	@Test
-	public void shouldNotBeLoyalCustomerForRegistrationExactlyTwoYearsBack() {
-		Calendar registrationDate = Calendar.getInstance();
-		registrationDate.setTime(new Date());
-		registrationDate.add(Calendar.YEAR, -2);
-		Customer customer = new Customer(CustomerType.NORMAL, registrationDate.getTime());
-
-		assertThat(customer.isLoyal(), is(false));
 	}
 
 	@Test
